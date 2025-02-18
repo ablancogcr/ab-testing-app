@@ -6,12 +6,14 @@ This project is a Streamlit application designed to facilitate A/B testing analy
 
 ```
 ab-testing-app
-├── src
-│   ├── app.py          # Main entry point of the Streamlit application
-│   └── utils
-│       └── analysis.py # Utility functions for statistical analysis
-├── requirements.txt    # List of dependencies
-└── README.md           # Project documentation
+├── Main.py                     # Main entry point and main page of the Streamlit application
+├── helper
+│       ├── data_generation.py  # Utility functions to create syntethic dataset
+│       └── stat_tests.py       # Functions to perform statistical tests
+├── pages
+│       └── 1_Analysis.py       # Page to load data and view test results
+├── requirements.txt            # List of dependencies
+└── README.md                   # Project documentation
 ```
 
 ## Requirements
@@ -35,7 +37,7 @@ Once the application is running, you can upload your dataset and view the result
 ## Usage
 
 1. Upload your dataset in CSV format.
-2. Specify the columns representing the two groups you want to compare.
+2. View a summary of the data
 3. View the results, including statistical metrics and significance tests.
 
 ## Contributing
