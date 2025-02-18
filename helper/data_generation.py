@@ -12,12 +12,18 @@ def generate_synthetic_ab_data(sample_size: int) -> pd.DataFrame:
         pd.DataFrame: A DataFrame with columns 'group' and 'outcome'
                       containing synthetic data for groups A and B.
     """
-    # Set a seed for reproducibility
-    #np.random.seed(42)
+    # Calculate the mean for each group
+    scale = np.random.randint(1,5)
+    #print(f"scale: {scale}")
+
+    loc_A = np.random.normal(loc=50, scale=scale, size=1)
+    loc_B = np.random.normal(loc=50, scale=scale, size=1)
     
     # Generate synthetic outcomes for group A and group B
-    outcomes_A = np.random.normal(loc=50, scale=10, size=sample_size)
-    outcomes_B = np.random.normal(loc=55, scale=10, size=sample_size)
+    scale_A = np.random.randint(5,10)
+    scale_B = np.random.randint(5,10)
+    outcomes_A = np.random.normal(loc=loc_A, scale=scale_A, size=sample_size)
+    outcomes_B = np.random.normal(loc=loc_B, scale=scale_B, size=sample_size)
     
     # Create DataFrames for each group
     df_A = pd.DataFrame({'group': 'A', 'outcome': outcomes_A})

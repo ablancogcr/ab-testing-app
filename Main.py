@@ -10,11 +10,21 @@ st.set_page_config(
 # Main title and introduction
 st.title("Welcome to the A/B Testing App")
 st.write('''
+    This app is a simple A/B Testing tool that allows you to upload your own data or generate a synthetic dataset to compare two groups.
+    You can also review some of the key concepts of A/B testing and common mistakes to avoid.
+    
+''')
+st.markdown("**How does it work?**")
+st.markdown('''
+    In the <a href="Analysis" target="_self">Analysis page</a> you can upload your own data or generate a synthetic dataset to compare two groups. 
+    Once you have data, a summary of the data will be displayed and you can perform an A/B test to compare the two groups.
+''',unsafe_allow_html=True)
+
+st.markdown("**What is A/B Testing**")
+st.write('''
     An A/B test is at its core a simple way to compare two versions of something to figure out which performs better. 
     It is an application of statistical hypothesis testing with two variants leading to the technical terms A and B.
-    
     ''')
-st.markdown("**How does it work?**")
 st.write(''' 
     The first step is to decide what it is you want to test. This could be anything from a marketing campaign to a new website design. 
     Then you need to decide what you want to measure. This could be anything from clicks to revenue. \n
@@ -46,3 +56,6 @@ st.write('''
     In short, A/B testing is a powerful tool to test changes in a controlled environment. It can be used in real life cases to test changes in a website, a marketing campaign, or a product; while at the same time providing statistical evidence to support the decision making process.
     But, it is also important to have a clear hypothesis, a large enough sample size, and to let the test run for a reasonable amount of time.
 ''')
+st.write('''
+    Now that you have a basic understanding of A/B testing, you can go to the <a href="Analysis" target="_self">Analysis page</a> to get started.
+''',unsafe_allow_html=True)

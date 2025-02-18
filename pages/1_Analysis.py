@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import os
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -28,6 +29,19 @@ st.write(
 
 # Option 1: File Upload
 uploaded_file = st.file_uploader('Upload a CSV file', type=['csv'])
+
+st.write('Below you can download a sample CSV file that shows the way the data should be structured. There should be two columns: the first one for the group, either A or B, and a second column with the outcomes.')
+sample_file_path = os.path.join("sample", "ab_sample.csv")
+
+with open(sample_file_path, "rb") as file:
+    st.download_button(
+        label="Download Sample File",
+        data=file,
+        file_name="sample_file.csv",
+        mime="text/csv"
+    )
+
+
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     st.session_state.df = df
@@ -54,6 +68,7 @@ else:
 # Step 2: Review Your Data
 # ------------------------------
 if st.session_state.df is not None:
+    st.divider()
     df = st.session_state.df
     
     st.subheader('Step 2: Review Your Data')
@@ -106,6 +121,7 @@ if st.session_state.df is not None:
     # ------------------------------
     # Step 3: Perform A/B Test
     # ------------------------------
+    st.divider()
     st.subheader("Step 3: Perform A/B Test")
     with st.form(key="ab_test_form"):
         # Row 1: Confidence Level selection and explanation
@@ -162,7 +178,7 @@ if st.session_state.df is not None:
         if decision == True:
             st.success(f"Given the data available: P-value {p_val:.4f} is less than {1-confidence_level:.2f} (Confidence level). We can reject H0 and say that with the data provided the difference between groups is statistically significant and that this difference is not caused by chance.")
         else:
-            st.warning(f"Given the data available: P-value {p_val:.4f} is greater than {1-confidence_level:.2f} (Confidence level). We can no reject H0 and say that the difference between groups is not statistically significant.")
+            st.warning(f"Given the data available: P-value {p_val:.4f} is greater than {1-confidence_level:.2f} (Confidence level). We can not reject H0 and say that the difference between groups is not statistically significant.")
 
         st.write(f"T-Statistic: {t_stat:.4f}")
         st.write(f"P-Value: {p_val:.4f}")
