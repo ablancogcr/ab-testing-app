@@ -27,8 +27,7 @@ st.write('''
     ''')
 st.write(''' 
     The first step is to decide what it is you want to test. This could be anything from a marketing campaign to a new website design. 
-    Then you need to decide what you want to measure. This could be anything from clicks to revenue. \n
-    To run the test you randomly split your audience into two groups, A and B. Group A sees the original (control) and group B sees the new version (treatment).
+    To run the test you randomly split your audience into two groups, A and B. Group A sees the original (control) and group B sees the new version (treatment). Both groups need to be the same size.
     This can be for example, the color of a button, the text of a call to action, or the layout of the website. \n
     In real life, there can be many factors that can influence the behavior of users, this is why it is important to split audience as random as possible. \n
     Another key point is to have a large enough sample size to ensure the results are statistically significant. 
